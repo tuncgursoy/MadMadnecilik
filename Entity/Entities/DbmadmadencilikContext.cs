@@ -38,6 +38,23 @@ namespace Entity.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<tblyonetmenlik>(entity =>
+            {
+                entity.ToTable("tblyonetmenlik");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Adi)
+                    .IsRequired()
+                    .HasColumnName("adi");
+
+                entity.Property(e => e.Url)
+                    .IsRequired()
+                    .HasColumnName("url");
+            });
+
             modelBuilder.Entity<tblBilgiler>(entity =>
             {
                 entity.ToTable("tblBilgiler");

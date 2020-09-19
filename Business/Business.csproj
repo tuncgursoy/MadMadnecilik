@@ -15,8 +15,6 @@
 </ItemGroup>
 <ItemGroup>
 <Folder Include="Dto\Request\" />
-<Folder Include="Abstract\" />
-<Folder Include="Concrete\" />
 <Folder Include="IOC\" />
 <Folder Include="Language\" />
 <Folder Include="Utility\" />

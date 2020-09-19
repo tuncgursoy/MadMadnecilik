@@ -31,6 +31,8 @@ namespace Business.IOC
            builder.RegisterType<EftblResimDuyuruDal>().As<ItblResimDuyuruDal>();
            builder.RegisterType<tblResimProjeManager>().As<ItblResimProjeService>();
            builder.RegisterType<EftblResimProjeDal>().As<ItblResimProjeDal>();
+           builder.RegisterType<tblYonetmenlikManager>().As<ItblYonetmenlikService>();
+           builder.RegisterType<EftblyonetmenlikDal>().As<ItblyonetmenlikDal>();
       }
   }
 }
