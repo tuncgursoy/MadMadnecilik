@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/MENU/Views/Shared/_Layout.cshtml";
+}
+    <script>
+
+        function submit() {
+            if (document.getElementsByName("password1") == "" || document.getElementsByName("password2") == "" || document.getElementsByName("password1") != documen
+                .getElementByName("password2")) {
+                alert("Şifre Giriş Alanında Bir Yanlışlık Var");
+                windows.history.back();
+            } else {
+                alert("Başarıyla Kayıt Edildi");
+            }
+            return false;
+        }
+
+    </script>
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+@model Web.Areas.MENU.Models.ModelUser
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <form onsubmit="submit()" asp-action="Index" asp-controller="PasswordChange" method="post" id="passwordForm">
+                @Html.TextBoxFor(model => Model.password1, new { @type = "password", @class = "input-lg form-control", @name = "password1", @id = "password1", @placeholder = "Yeni Şifre", @autocomplete = "off" })
+                <div class="row">
+                    <div class="col-sm-6">
+                        <span id="8char" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> 8 Karakter Uzunluğunda<br>
+                        <span id="ucase" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Bir Büyük Harf
+                    </div>
+                    <div class="col-sm-6">
+                        <span id="lcase" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Bir Küçük Harf<br>
+                        <span id="num" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Bir Numara
+                    </div>
+                </div>
+                @Html.TextBoxFor(model => Model.password2, new { @type = "password", @class = "input-lg form-control", @name = "password2", @id = "password2", @placeholder = "Yeni Şifre", @autocomplete = "off" })
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Şifreler Eşleşti
+                    </div>
+                </div>
+                <input type="submit" class="col-xs-12 btn btn-primary btn-load btn-lg" data-loading-text="Şifre Değiştiriliyor..." value="Şifre Değiştir">
+            </form>
+            @if (Model.isSuccessfull!=null&&Model.isSuccessfull==true)
+            {
+                
+                <div class="alert" align="center">
+                    Şifre Değiştirme Başarılı
+                </div>
+            }
+            else if (Model.isSuccessfull != null&&Model.isSuccessfull==false)
+            {
+                <div class="alert" align="center">
+                    Şifre Değiştirme Başarısız (Şifre Kurallara Uymuyor)
+                </div>
+            }
+        </div><!--/col-sm-6-->
+    </div><!--/row-->
+</div>
+<script src="~/Menu/PasswordChange/PasswordChange.js"></script>
+
+

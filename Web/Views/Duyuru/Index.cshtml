@@ -21,15 +21,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 blog-content">
-                <img align="middle" src="~/@Model.duyuru.resimUrl"/>
+                <img align="middle" src="~/Main/@Model.duyuru.resimUrl"/>
                 <p>@Model.duyuru.aciklama</p>
                 <div>
                     @if (Model.duyuru.PdfUrl != null)
                     {
                         <p>İndirmek İçin Tıklayınız:</p>
-                        <a href="~/@Model.duyuru.PdfUrl" download>
+                        <a href="~/Main/@Model.duyuru.PdfUrl" download>
 
-                            <img src="~/images/pdfImage.png" alt="pdf" width="50" height="60"/>
+                            <img src="~/Main/images/pdfImage.png" alt="pdf" width="50" height="60"/>
                         </a>
                     }
                 </div>

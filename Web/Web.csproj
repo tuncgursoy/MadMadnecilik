@@ -29,12 +29,12 @@
 
 </ItemGroup>
 <ItemGroup>
-  <Folder Include="Areas\" />
 <Folder Include="Authentication\" />
 <Folder Include="Migrations\" />
 <Folder Include="Properties\" />
 <Folder Include="ViewComponents\" />
-<Folder Include="Utility\" />
+<Folder Include="wwwroot\Login\" />
+<Folder Include="wwwroot\Start\" />
 
 </ItemGroup>
 </Project>

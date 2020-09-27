@@ -1,0 +1,81 @@
+﻿@using Web.Utility
+@model Web.Areas.MENU.Models.ModelUser
+    <script type="text/javascript">
+     function logout() {
+        @StaticValues.LoginId = null;
+        window.location.href = "~/AnaSayfa/index";
+    }
+    </script>
+<!DOCTYPE html>
+<html lang="tr" class="no-js">
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Giriş Ekranı</title>
+    <link rel="shortcut icon" href="~/Menu/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="~/Menu/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="~/Menu/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="~/Menu/css/component.css" />
+    <link rel="stylesheet" href="~/Menu/header/demo.css">
+    <link rel="stylesheet" href="~/Menu/header/header-login-signup.css">
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+
+    <!-- csstransforms3d-shiv-cssclasses-prefixed-teststyles-testprop-testallprops-prefixes-domprefixes-load -->
+    <script src="~/Menu/js/modernizr.custom.25376.js"></script>
+</head>
+
+<body>
+<header class="header-login-signup">
+
+    <div class="header-limiter">
+
+        <h1><a >MAD<span>Madencilik</span></a></h1>
+
+        <nav>
+          
+        </nav>
+        <form asp-controller="Start" asp-action="logout">
+        <a>Sn. @Model.name @Model.surname</a>
+
+            <ul>
+
+                <button type="button" id="showMenu">MENU</button>
+                <button type="submit">ÇIKIŞ</button>
+            </ul>
+
+        </form>
+
+    </div>
+
+</header>
+
+<div id="perspective" class="perspective effect-movedown">
+  
+    <div class="container">
+        <div class="wrapper"><!-- wrapper needed for scroll -->
+            <!-- Top Navigation -->
+                
+            @RenderBody()
+
+                
+            
+        </div>
+    </div><!-- /container -->
+    
+    <nav class="outer-nav top horizontal">
+        <a href="#" class="icon-home">Home</a>
+        <a href="#" class="icon-news">News</a>
+        <a href="#" class="icon-image">Images</a>
+        <a href="#" class="icon-upload">Uploads</a>
+        <a href="#" class="icon-star">Favorites</a>
+        <a href="#" class="icon-mail">Messages</a>
+        <a href="~/Menu/PasswordChange/index" class="icon-security">Şifre Değiştir</a>
+    </nav>
+</div><!-- /perspective -->
+<script src="~/Menu/js/classie.js"></script>
+<script src="~/Menu/js/menu.js"></script>
+</body>
+</html>

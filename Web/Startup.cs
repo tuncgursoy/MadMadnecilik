@@ -24,6 +24,17 @@ namespace Web
           app.UseStaticFiles();
           app.UseEndpoints(endpoints =>
           {
+              endpoints.MapAreaControllerRoute(
+                  name: "Giris",
+                  areaName: "Login",
+                  pattern: "Giris/{controller=Login}/{action=Index}/{id?}"
+              );
+              endpoints.MapAreaControllerRoute(
+                  name: "MENU",
+                  areaName: "MENU",
+                  pattern: "MENU/{controller=Start}/{action=Index}/{id?}"
+              );
+
               endpoints.MapControllerRoute(
                   name: "default",
                   pattern:"{controller=AnaSayfa}/{action=Index}/{id?}"
