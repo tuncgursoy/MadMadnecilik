@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/MENU/Views/Shared/_Layout.cshtml";
+}
+@model Web.Areas.MENU.Models.ModelUser
+<form asp-controller="DuyuruSil" asp-action="Index">
+    <section class="site-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 blog-content">
+                    <img align="middle" src="~/Main/@Model.duyuru.resimUrl" />
+                    @foreach (var i in Model.duyuru.array)
+                    {
+                        <p>
+                            @i
+                        </p>
+                    }
+
+                    <div>
+                        @if (Model.duyuru.PdfUrl != null)
+                        {
+                            <p>İndirmek İçin Tıklayınız:</p>
+                            <a href="~/Main/@Model.duyuru.PdfUrl" download>
+
+                                <img src="~/Main/images/pdfImage.png" alt="pdf" width="50" height="60" />
+                            </a>
+                        }
+                    </div>
+                    <div>
+                        @if (Model.duyuru.aktif==1)
+                        {
+                        <button type="submit">DeAktive Et</button>
+
+                        }
+                        else
+                        {
+                            <button type="submit">Aktif Et</button>
+
+                        }
+                    </div>
+                    <div class="pt-5">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</form>

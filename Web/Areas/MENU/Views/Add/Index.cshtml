@@ -1,0 +1,100 @@
+﻿@{ 
+Layout = "~/Areas/MENU/Views/Shared/_Layout.cshtml";
+}
+
+
+<script>
+
+    function resimDegisti(item) {
+        if (item.files && item.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("#myImage").attr("src", e.target.result);
+            };
+            reader.readAsDataURL(item.files[0]);
+        }
+    }
+
+    function setUrl() {
+        document.getElementById("btnImageFile").click();
+    }
+</script>
+@model Web.Areas.MENU.Models.ModelUser
+    <section class="ftco-section contact-section px-md-4">
+        <div class="container">
+            <div class="row d-flex mb-5 contact-info">
+                <div class="col-md-12 mb-4">
+                    <h2 class="h3" align="center">Mevzuat  Ekle</h2>
+                </div>
+                <div class="w-100"></div>
+
+            </div>
+            <div class="row block-9">
+                <div class="col-lg-12 d-flex">
+
+                    <form asp-controller="Add" asp-action="Index" class="bg-light p-5 contact-form" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => Model.baslik, new { @class = "form-control", @type = "text", @placeholder = "Başlık" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => Model.url, new { @class = "form-control", @type = "text", @placeholder = "URL" })
+                        </div>
+                        <div class="input-group mb-3 mx-3">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                @Html.DropDownListFor(model => model.cat, new List<SelectListItem>
+                                {
+                                    new SelectListItem("Lütfen Kategori Seçiniz", "0", true, true),
+                                    new SelectListItem("Kanun", "1", false, false),
+                                    new SelectListItem("Yönetmelik", "2", false, false)
+                                }, null, new { @name = "tür" })
+                                <div class="select-dropdown"></div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" align="center" value="Paylaş" class="btn btn-primary py-3 px-5">
+                            @if (Model != null)
+                            {
+
+
+                                @if (Model.isSuccessfull != null && Model.isSuccessfull == true)
+                                {
+
+                                    <div class="alert" align="center">
+                                        Şifre Değiştirme Başarılı
+                                    </div>
+                                }
+                                else if (Model.isSuccessfull != null && Model.isSuccessfull == false)
+                                {
+                                    <div class="alert" align="center">
+                                        Şifre Değiştirme Başarısız (Şifre Kurallara Uymuyor)
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+<script src="~/ADD/js/jquery.min.js"></script>
+<script src="~/ADD/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="~/ADD/js/popper.min.js"></script>
+<script src="~/ADD/js/bootstrap.min.js"></script>
+<script src="~/ADD/js/jquery.easing.1.3.js"></script>
+<script src="~/ADD/js/jquery.waypoints.min.js"></script>
+<script src="~/ADD/js/jquery.stellar.min.js"></script>
+<script src="~/ADD/js/owl.carousel.min.js"></script>
+<script src="~/ADD/js/jquery.magnific-popup.min.js"></script>
+<script src="~/ADD/js/aos.js"></script>
+<script src="~/ADD/js/jquery.animateNumber.min.js"></script>
+<script src="~/ADD/js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="~/ADD/js/google-map.js"></script>
+<script src="~/ADD/js/main.js"></script>

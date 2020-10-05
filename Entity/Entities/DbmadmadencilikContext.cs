@@ -53,6 +53,7 @@ namespace Entity.Entities
                 entity.Property(e => e.Url)
                     .IsRequired()
                     .HasColumnName("url");
+                entity.Property(e => e.aktif).HasColumnName("aktif");
             });
 
             modelBuilder.Entity<tblBilgiler>(entity =>
@@ -100,6 +101,7 @@ namespace Entity.Entities
                     .HasColumnType("date");
 
                 entity.Property(e => e.İcerik).IsRequired();
+                entity.Property(e => e.aktif).HasColumnName("aktif");
             });
 
             modelBuilder.Entity<tblKanun>(entity =>
@@ -118,6 +120,7 @@ namespace Entity.Entities
                 entity.Property(e => e.Url)
                     .IsRequired()
                     .HasColumnName("url");
+                entity.Property(e => e.aktif).HasColumnName("aktif");
             });
 
             modelBuilder.Entity<tblKullanicilar>(entity =>
@@ -208,6 +211,7 @@ namespace Entity.Entities
                     .HasForeignKey(d => d.ProjeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_tblPdfProje_tblProjeler");
+
             });
 
             modelBuilder.Entity<tblProjeler>(entity =>
@@ -226,6 +230,7 @@ namespace Entity.Entities
                     .IsRequired()
                     .HasColumnName("baslik")
                     .HasMaxLength(100);
+                entity.Property(e => e.aktif).HasColumnName("aktif");
             });
 
             modelBuilder.Entity<tblResim>(entity =>

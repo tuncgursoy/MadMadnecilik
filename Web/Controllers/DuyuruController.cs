@@ -48,6 +48,8 @@ namespace Web.Controllers
                     modelDuyuru.duyuru = VARIABLE;
                 }
             }
+
+            modelDuyuru.duyuru.array = modelDuyuru.duyuru.aciklama.Split("<br>");
             return View(modelDuyuru);
         }
     }

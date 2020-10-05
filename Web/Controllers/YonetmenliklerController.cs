@@ -26,7 +26,11 @@ namespace Web.Controllers
             model.yonetmenliklist = new List<tblyonetmenlik>();
             for (int i = yonetmenliklist.Count - 1; 0 <= i; i--)
             {
+                if (yonetmenliklist[i].aktif==0)
+                {
                 model.yonetmenliklist.Add(yonetmenliklist[i]);
+
+                }
             }
             return View(model);
         }

@@ -12,5 +12,7 @@ namespace Business.Dto.Model
         public string resimUrl { get; set; }
         public string PdfUrl { get; set; }
         public DateTime Date { get; set; }
+        public string[] array { get; set; }
+        public int? aktif { get; set; }
     }
 }

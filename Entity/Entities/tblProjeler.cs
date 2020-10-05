@@ -15,6 +15,8 @@ namespace Entity.Entities
         public int Id { get; set; }
         public string Baslik { get; set; }
         public string Aciklama { get; set; }
+        public int? aktif { get; set; }
+
 
         public virtual ICollection<tblPdfProje> TblPdfProje { get; set; }
         public virtual ICollection<tblResimProje> TblResimProje { get; set; }

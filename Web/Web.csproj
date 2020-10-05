@@ -2,6 +2,7 @@
 
   <PropertyGroup>
       <TargetFramework>netcoreapp3.1</TargetFramework>
+      <UserSecretsId>mn</UserSecretsId>
   </PropertyGroup>
 
 <ItemGroup>
@@ -34,6 +35,8 @@
 <Folder Include="Properties\" />
 <Folder Include="ViewComponents\" />
 <Folder Include="wwwroot\Login\" />
+<Folder Include="wwwroot\ADD\" />
+<Folder Include="wwwroot\Main\images\resimler\" />
 <Folder Include="wwwroot\Start\" />
 
 </ItemGroup>

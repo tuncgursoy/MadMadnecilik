@@ -22,7 +22,13 @@
         <div class="row">
             <div class="col-md-8 blog-content">
                 <img align="middle" src="~/Main/@Model.duyuru.resimUrl"/>
-                <p>@Model.duyuru.aciklama</p>
+                @foreach (var i in Model.duyuru.array)
+                {
+                    <p>
+                        @i
+                    </p>
+                }
+                
                 <div>
                     @if (Model.duyuru.PdfUrl != null)
                     {

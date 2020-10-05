@@ -59,6 +59,7 @@ namespace Business.Dto.Response
                 duyuru.baslik = tblDuyuru.Baslik;
                 duyuru.id = tblDuyuru.Id;
                 duyuru.Date = tblDuyuru.UploadTime;
+                duyuru.aktif = tblDuyuru.aktif;
                 list.Add(duyuru);
             }
 

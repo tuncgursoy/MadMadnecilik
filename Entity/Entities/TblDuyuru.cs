@@ -16,6 +16,8 @@ namespace Entity.Entities
         public DateTime UploadTime { get; set; }
         public string Baslik { get; set; }
         public string İcerik { get; set; }
+        public int? aktif { get; set; }
+
 
         public virtual ICollection<tblPdfDuyuru> TblPdfDuyuru { get; set; }
         public virtual ICollection<tblResimDuyuru> TblResimDuyuru { get; set; }

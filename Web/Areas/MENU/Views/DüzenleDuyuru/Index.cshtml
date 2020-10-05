@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/MENU/Views/Shared/_Layout.cshtml";
+}
+@model Web.Areas.MENU.Models.ModelUser
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            @foreach (var i in Model.listDuyuru)
+            {
+                <div class="col-md-6 mb-5 mb-lg-5 col-lg-4">
+                    <div class="blog-entry">
+                        
+                        <div class="blog-entry-contents">
+                            <h3><a href="~/Menu/DuyuruSil/index/@i.Id">@i.Baslik</a></h3>
+                            <div class="meta">Tarih: <a>@i.UploadTime.Day/@i.UploadTime.Month/@i.UploadTime.Year</a></div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+
+
+    </div>
+</div>
