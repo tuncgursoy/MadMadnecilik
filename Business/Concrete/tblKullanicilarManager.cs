@@ -35,6 +35,19 @@ namespace Business.Concrete
            return id;
        }
 
+       public tblKullanicilar? FindbyMail(string email,string name)
+       {
+           foreach (var VARIABLE in GetAll().ToList())
+           {
+               if (VARIABLE.Mail == email && VARIABLE.Isim.ToLower() == name.ToLower())
+               {
+                   return VARIABLE;
+               }
+           }
+
+           return null; 
+       }
+
        public List<tblKullanicilar> GetAll()
       {
           return _tblKullanicilarDal.GetList();

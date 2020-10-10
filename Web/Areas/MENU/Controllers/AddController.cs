@@ -58,8 +58,9 @@ namespace Web.Areas.MENU.Controllers
                 temp.Adi = model.baslik;
                 temp.Id = _ItblYonetmenlikService.GetAll().ToList().Count + 1;
                 temp.Url = model.url;
-                _ItblYonetmenlikService.Add(temp);
                 temp.aktif = 0;
+                _ItblYonetmenlikService.Add(temp);
+                
                 model.isSuccessfull = true;
 
             }

@@ -11,5 +11,6 @@ namespace Business.Abstract
       void Delete(tblKullanicilar entity);
 
       int? LoginID(string email, string password);
+      tblKullanicilar? FindbyMail(string email,string name );
   }
 }
