@@ -38,6 +38,7 @@ namespace Web.Areas.MENU.Controllers
         {
             
             StaticValues.LoginId = null;
+            StaticValues.isİtKanun = null; 
             return RedirectToAction("Index", "AnaSayfa",new {area=""});
         }
     }

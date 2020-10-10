@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/MENU/Views/Shared/_Layout.cshtml";
+}
+
+@model Web.Areas.MENU.Models.ModelUser
+@using Web.Utility
+<form asp-action="Index" asp-controller="MezuatSil">
+    @Html.DropDownListFor(model =>model.Value, new List<SelectListItem>
+    {
+        new SelectListItem("Lütfen Kategori Seçiniz", "0", true, true),
+        new SelectListItem("Kanun", "1", false, false),
+        new SelectListItem("Yönetmelik", "2", false, false)
+    }, null, new { @name = "tür" })
+    <div class="select-dropdown"></div>
+    <button type="submit">İste</button>
+</form>
+@if (StaticValues.isİtKanun == 1)
+{
+
+    <div class="site-section">
+        <div class="container">
+            <div class="row">
+                @foreach (var i in Model.kanunlist)
+                {
+                    <div class="col-md-6 mb-5 mb-lg-5 col-lg-4">
+                        <div class="blog-entry">
+
+                            <div class="blog-entry-contents">
+                                <h3><a href="~/Menu/MezuatSil1/index/@i.Id">@i.Adi</a></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+
+
+        </div>
+    </div>
+
+}
+else if (StaticValues.isİtKanun == 2)
+{
+    <div class="site-section">
+        <div class="container">
+            <div class="row">
+                @foreach (var i in Model.yonetmenliklist)
+                {
+                    <div class="col-md-6 mb-5 mb-lg-5 col-lg-4">
+                        <div class="blog-entry">
+
+                            <div class="blog-entry-contents">
+                                <h3><a href="~/Menu/MezuatSil1/index/@i.Id">@i.Adi</a></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+
+
+        </div>
+    </div>
+}

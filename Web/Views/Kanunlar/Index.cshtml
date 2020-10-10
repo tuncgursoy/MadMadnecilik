@@ -22,17 +22,21 @@
         <div class="row">
             @foreach (var i in Model.kanunlist)
             {
-                <div class="col-md-6 mb-5 mb-lg-5 col-lg-4">
-                    <div class="blog-entry">
-                        <a href="@i.Url" target="_blank" class="img-link">
-                            <img src="~/Main/images/kanun.png" alt="Image" class="img-fluid">
-                        </a>
-                        <div class="blog-entry-contents">
-                            <h3><a href="@i.Url" target="_blank">@i.Adi</a></h3>
+                if (i.aktif == 0)
+                {
+
+
+                    <div class="col-md-6 mb-5 mb-lg-5 col-lg-4">
+                        <div class="blog-entry">
+                            <a href="@i.Url" target="_blank" class="img-link">
+                                <img src="~/Main/images/kanun.png" alt="Image" class="img-fluid">
+                            </a>
+                            <div class="blog-entry-contents">
+                                <h3><a href="@i.Url" target="_blank">@i.Adi</a></h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-
+                }
             }
 
 

@@ -27,7 +27,7 @@ namespace Web.Controllers
         {
             model.iserror = false;
             int? id = _kullanicilar.LoginID(model.email, model.password);
-            if (id!=null)
+            if (id!=null&&_kullanicilar.GetById(id).aktif==1)
             {
                 StaticValues.LoginId = id; 
                return RedirectToAction("Index","Start", new { area = "MENU" });

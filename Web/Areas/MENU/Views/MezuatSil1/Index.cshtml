@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/MENU/Views/Shared/_Layout.cshtml";
+}
+
+@using Web.Utility
+@model Web.Areas.MENU.Models.ModelUser
+
+@if (StaticValues.isİtKanun == 1)
+{
+
+    <form asp-controller="MezuatSil1" asp-action="Index">
+
+        <section class="site-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 blog-content">
+
+                        <div>
+                            <li class="align-content-center">
+                                @Model.kanun.Adi
+                            </li>
+                        </div>
+                        <div>
+                            <a href=@Model.kanun.Url>@Model.kanun.Url</a> 
+                        </div>
+                        <div>
+                            @if (Model.kanun.aktif == 1)
+                            {
+                            <button type="submit">Görünür Yap</button>
+
+                            }
+                            else
+                            {
+                        <button type="submit">Görünmez Yap</button>
+
+                            }
+                        </div>
+                        <div class="pt-5">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </form>
+}
+else if (StaticValues.isİtKanun == 2)
+{
+    <form asp-controller="MezuatSil1" asp-action="Index">
+
+        <section class="site-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 blog-content">
+
+                        <div>
+                            @Model.yonetmenlik.Adi
+                        </div>
+                        <div>
+                            @Model.yonetmenlik.Url
+                        </div>
+                        <div>
+                            @if (Model.yonetmenlik.aktif == 1)
+                            {
+                                <button type="submit">Görünmez Yap</button>
+
+                            }
+                            else
+                            {
+                                <button type="submit">Görünür Yap</button>
+
+                            }
+                        </div>
+                        <div class="pt-5">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </form>
+}

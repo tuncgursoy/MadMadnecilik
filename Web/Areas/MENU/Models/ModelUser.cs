@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Business.Dto.Model;
+using Entity;
 using Entity.Entities;
 using Microsoft.AspNetCore.Http;
 
@@ -26,5 +27,11 @@ namespace Web.Areas.MENU.Models
         public DuyurularDto duyuru { get; set; }
         public string id { get; set; }
         public bool aktif { get; set; }
+        public tblKanun kanun { get; set; }
+        public tblyonetmenlik yonetmenlik { get; set; }
+        public List<tblKanun> kanunlist { get; set; }
+        public List<tblyonetmenlik> yonetmenliklist { get; set; }
+        public int Value { get; set; }
+        public ModelKullanici kull { get; set; }
     }
 }

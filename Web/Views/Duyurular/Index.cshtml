@@ -21,17 +21,22 @@
         <div class="row">
             @foreach (var i in Model.listDuyuru)
             {
-                <div class="col-md-6 mb-5 mb-lg-5 col-lg-4">
-                    <div class="blog-entry">
-                        <a href="~/Duyuru/index/@i.id" class="img-link">
-                            <img src="~/Main/@i.resimUrl" alt="Image" class="img-fluid" width="300" height="250">
-                        </a>
-                        <div class="blog-entry-contents">
-                            <h3><a href="~/Duyuru/index/@i.id">@i.baslik</a></h3>
-                            <div class="meta">Tarih: <a >@i.Date.Day/@i.Date.Month/@i.Date.Year</a></div>
+                if (i.aktif == 1)
+                {
+
+
+                    <div class="col-md-6 mb-5 mb-lg-5 col-lg-4">
+                        <div class="blog-entry">
+                            <a href="~/Duyuru/index/@i.id" class="img-link">
+                                <img src="~/Main/@i.resimUrl" alt="Image" class="img-fluid" width="300" height="250">
+                            </a>
+                            <div class="blog-entry-contents">
+                                <h3><a href="~/Duyuru/index/@i.id">@i.baslik</a></h3>
+                                <div class="meta">Tarih: <a >@i.Date.Day/@i.Date.Month/@i.Date.Year</a></div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
 
             }
 

@@ -155,6 +155,7 @@ namespace Entity.Entities
                     .IsRequired()
                     .HasColumnName("rol")
                     .HasMaxLength(200);
+                entity.Property(e => e.aktif).HasColumnName("aktif");
 
             });
 

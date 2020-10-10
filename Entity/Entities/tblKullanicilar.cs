@@ -12,5 +12,6 @@ namespace Entity.Entities
         public string Mail { get; set; }
         public string Sifre { get; set; }
         public string rol { get; set; }
+        public int aktif { get; set; }
     }
 }

@@ -61,6 +61,8 @@ namespace Web.Areas.MENU.Controllers
             }
 
             modelDuyuru.duyuru.array = modelDuyuru.duyuru.aciklama.Split("<br>");
+            modelDuyuru.name = tblKullanicilar.Isim;
+            modelDuyuru.surname = tblKullanicilar.Soyisim;
             return View(modelDuyuru);
         }
 
@@ -82,7 +84,34 @@ namespace Web.Areas.MENU.Controllers
                 temp.aktif = 1; 
             }
             _ITblDuyuruService.Update(temp);
-            return Index(); 
+
+            tblKullanicilar tblKullanicilar = _IKullanicilarService.GetById(StaticValues.LoginId);
+            ModelUser user = new ModelUser();
+            user.name = tblKullanicilar.Isim;
+            user.surname = tblKullanicilar.Soyisim;
+
+            DuyurularDtoResponse db = new DuyurularDtoResponse(_ItblResimDuyuruService, _ItblPdfDuyuruService, _ITblDuyuruService, _ItblResimService, _ItblPdfService);
+            ModelDuyurular model1 = new ModelDuyurular();
+            model1.listDuyuru = new List<DuyurularDto>();
+            string Url1 = Request.GetDisplayUrl();
+            string[] sub1 = Url1.Split("/");
+            int length1 = sub.Length;
+            int id1 = Int32.Parse(sub1[length1 - 1].Substring(0, 1));
+            ModelUser modelDuyuru = new ModelUser();
+            modelDuyuru.duyuru = new DuyurularDto();
+            foreach (var VARIABLE in db.DuyuruList())
+            {
+                if (id1 == VARIABLE.id)
+                {
+                    modelDuyuru.duyuru = VARIABLE;
+                }
+            }
+
+            modelDuyuru.name = tblKullanicilar.Isim;
+            modelDuyuru.surname = tblKullanicilar.Soyisim;
+
+            modelDuyuru.duyuru.array = modelDuyuru.duyuru.aciklama.Split("<br>");
+            return View(modelDuyuru);
         }
     }
 }
